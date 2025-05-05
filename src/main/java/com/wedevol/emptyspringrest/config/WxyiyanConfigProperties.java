@@ -10,13 +10,10 @@ import java.io.Serializable;
 @ConfigurationProperties(prefix = "wenxin")
 public class WxyiyanConfigProperties implements Serializable {
 
-    private static String apiKey;
+    private String apiKey;
 
-    @Value(value = "${wenxin.url}")
-    private static String url;
+    private String url;
 
-    @Value(value = "${wenxin.model}")
-    private static String model;
-
+    private String model;
 
 }

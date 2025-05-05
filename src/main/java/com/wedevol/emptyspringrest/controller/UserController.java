@@ -1,15 +1,13 @@
 package com.wedevol.emptyspringrest.controller;
 
 
-import java.util.Arrays;
-
-import com.wedevol.emptyspringrest.service.WxyiyanService;
+import com.wedevol.emptyspringrest.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import com.wedevol.emptyspringrest.entity.User;
+
+import java.util.Arrays;
 
 /**
  * User REST Controller
@@ -22,15 +20,6 @@ import com.wedevol.emptyspringrest.entity.User;
 public class UserController {
 
     private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
-
-    @Autowired
-    private WxyiyanService wxyiyanService;
-
-    @RequestMapping(value = "/getByAI/{context}", method = RequestMethod.GET)
-    public String getByAI(@PathVariable String context) throws Exception{
-        return wxyiyanService.talk(context);
-    }
-
 
 
     private static final User USER_1 = new User(1L, "Carlos", Arrays.asList("charz"), 26, "charz@yopmail.com");

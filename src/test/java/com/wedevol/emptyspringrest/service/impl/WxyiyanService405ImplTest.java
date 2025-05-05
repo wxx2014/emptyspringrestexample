@@ -29,7 +29,7 @@ public class WxyiyanService405ImplTest {
 
     @Test
     public void talk() throws Exception {
-        String res = wxyiyanService.talk("现在中国旅游出行最好时机是什么时候才能舒适");
+        String res = wxyiyanService.talkTextSingle("现在中国旅游出行最好时机是什么时候才能舒适");
         System.out.println(res);
     }
 

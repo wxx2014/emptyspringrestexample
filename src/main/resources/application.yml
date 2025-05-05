@@ -1,0 +1,7 @@
+
+wenxin:
+    model: ernie-4.5-turbo-vl-32k
+    url: https://qianfan.baidubce.com/v2/chat/completions
+    api-key: bce-v3/ALTAK-83jlmkwFAFfY0TYvGA7BS/c35537dcbce4111af7a9ef345e89d38ae944d1b5
+server:
+  port: 8080

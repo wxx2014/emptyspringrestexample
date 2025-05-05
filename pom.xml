@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   
   <groupId>com.wedevol</groupId>
-  <artifactId>emptyspringrestexample</artifactId>
+  <artifactId>wenxin-ai</artifactId>
   <packaging>war</packaging>
   <version>2.0.3</version>
   <name>Empty Spring Rest Example Project</name>
@@ -13,7 +13,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<tomcat.version>8.5.56</tomcat.version> <!-- activates spring boot internal servlet configuration when used as auto executable -->
+	  	<fastjson.version>1.2.83</fastjson.version>
+<!--		<tomcat.version>8.5.56</tomcat.version> &lt;!&ndash; activates spring boot internal servlet configuration when used as auto executable &ndash;&gt;-->
 	</properties>
 
 	<parent>
@@ -36,6 +37,40 @@
 			<artifactId>spring-boot-starter-tomcat</artifactId>
 			<scope>provided</scope> <!-- provided by custom Tomcat -->
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		 <dependency>
+		     <groupId>com.squareup.okhttp3</groupId>
+		     <artifactId>okhttp</artifactId>
+		     <version>4.12.0</version>
+		 </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>${fastjson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

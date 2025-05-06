@@ -45,4 +45,6 @@ public interface WxyiyanService {
      * @return
      */
     String talkTextSingle(String reqContent);
+
+
 }

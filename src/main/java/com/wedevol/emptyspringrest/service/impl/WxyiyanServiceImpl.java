@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.wedevol.emptyspringrest.config.WxyiyanConfigProperties;
 import com.wedevol.emptyspringrest.entity.WxyyReqBody;
 import com.wedevol.emptyspringrest.service.WxyiyanService;
+import com.wedevol.emptyspringrest.utils.MarkdownUtil;
 import okhttp3.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,7 +38,8 @@ public class WxyiyanServiceImpl implements WxyiyanService {
      * @return
      */
     public String getReqBodyStr(List<WxyyReqBody.Message> messages,WxyyReqBody.WebSearch web_search) {
-        WxyyReqBody wxyyReqBody = new WxyyReqBody(wxyiyanConfigProperties.getModel(),messages,web_search);
+
+        WxyyReqBody wxyyReqBody = new WxyyReqBody(wxyiyanConfigProperties.getModel(),messages,new WxyyReqBody.ResponseFormat("json_object"),0.1d,0d,web_search);
         String wxyyReqBodyStr = JSON.toJSONString(wxyyReqBody);
         return wxyyReqBodyStr;
     }
@@ -91,12 +93,15 @@ public class WxyiyanServiceImpl implements WxyiyanService {
         try {
             response = okHttpClient.newCall(request).execute();
             String resContext = getResByResp(response);
-            return resContext;
+            return MarkdownUtil.markdownToPlainText(resContext);
         } catch (IOException e) {
             LOG.error("文心一言返回报错:"+e.getMessage());
             throw new RuntimeException(e);
         }
     }
+
+
+
 
 
 }

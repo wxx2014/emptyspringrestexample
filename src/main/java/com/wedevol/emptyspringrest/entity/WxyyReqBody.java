@@ -17,6 +17,18 @@ public class WxyyReqBody implements Serializable {
 
     private List<Message> messages;
 
+    private ResponseFormat response_format;
+
+    /**
+     * 较高的数值会使输出更加随机，而较低的数值会使其更加集中和确定(0, 1.0]
+     */
+    private Double temperature;
+
+    /**
+     * 影响输出文本的多样性，取值越大，生成文本的多样性越强 [0, 1.0]
+     */
+    private Double top_p;
+
     private WebSearch web_search = new WebSearch();
 
     @Data
@@ -37,6 +49,14 @@ public class WxyyReqBody implements Serializable {
         public int hashCode() {
             return Objects.hash(role, content);
         }
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ResponseFormat {
+        private String type;
+        // private Map json_schema;
     }
 
     @Data

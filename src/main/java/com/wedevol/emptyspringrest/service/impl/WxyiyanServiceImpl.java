@@ -79,6 +79,9 @@ public class WxyiyanServiceImpl implements WxyiyanService {
 
     @Override
     public String talkTextSingle(String reqContent) {
+        if (!(reqContent.startsWith("仅输出") && reqContent.endsWith("无需输出其他内容"))){
+            reqContent = "仅输出"+reqContent+"，无需输出其他内容";
+        }
         // 此段可以存入MongoDB 或者 redis 、mysql中 根据userId 与 会话 id
         WxyyReqBody.Message mes = new WxyyReqBody.Message();
         mes.setRole("user");

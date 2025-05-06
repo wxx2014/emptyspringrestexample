@@ -32,10 +32,11 @@ public class WxyiyanService405ImplTest {
         // 如何精确输出问题答案 ？
         // 1、入参限制 精确范围 temperature 设置尽量低  就是回答的问题更加精准
         // 2、入参设置 文本输出内容多样性低 top_p 0 为了确保不会乱输出格式 尽量简洁 将返回的markDown格式内容直接输出无需带markDown输出
-        // 3、问题精准输出也取决输入问题的规范性，严格性。输出的问题结果自然也就精准简洁 例如：仅输出 xxx的xxx，无需输出其他内容
+        // 3、问题精准输出也取决输入问题的规范性，严格性。输出的问题结果自然也就精准简洁。例如：仅输出｛content｝,无需输出其他内容
 
-        // 仅罗列10种常用药的通用名，无需输出其他内容
-        String res = wxyiyanService.talkTextSingle("仅输出盘尼西尼的作用，无需输出其他内容");
+        // 可以将提问内容 默认加上这一段话 仅输出｛content｝,无需输出其他内容
+        // 仅罗列10种常用药的通用名，无需输出其他内容 仅输出盘尼西尼的作用，无需输出其他内容
+        String res = wxyiyanService.talkTextSingle("罗列10种常用药的通用名");
         System.out.println(res);
     }
 
